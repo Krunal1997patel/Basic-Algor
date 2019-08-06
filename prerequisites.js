@@ -116,3 +116,27 @@ function chatCount(str) {
     return characters;
 
 }
+
+
+//sliding Window pattern
+
+function maxSubarraySum(arr, num){
+    if(arr.length < num){
+        return null;
+    }
+    let maxNumber = 0;
+    let holdNumber = 0;
+    for(let i = 0; i < num; i++){
+        maxNumber+= arr[i]; // 3
+    }
+    holdNumber = maxNumber;  //holdNumber = 3
+    for(let i = num; i < arr.length; i++){
+        holdNumber = holdNumber - arr[i - num] + arr[i]; // in first loop holdNumber = 3 - 1 + 3
+        if(holdNumber > maxNumber){
+            maxNumber = holdNumber;
+        }
+    }
+    return maxNumber;
+}
+
+//console.log(maxSubarraySum([1,2,4,3,4,10,6,7,8], 2)) //16
