@@ -140,3 +140,26 @@ function maxSubarraySum(arr, num){
 }
 
 //console.log(maxSubarraySum([1,2,4,3,4,10,6,7,8], 2)) //16
+
+//binart search
+
+function search(arr, val){
+    let low = 0;
+    let high = arr.length -1;
+
+    while(low <= high){
+        let middle = Math.floor((low + high) / 2);
+        let currentMiddle = arr[middle];
+
+       if(currentMiddle < val){
+           low = middle + 1;
+       } else if(currentMiddle > val){
+           high = middle -1;
+       }else{
+           return middle;
+       }
+    }
+    return 'not found';
+}
+
+console.log(search([1,2,3,4,5,6,7,8,9,12,14,17,19,23,34,66,89,90], 3))
