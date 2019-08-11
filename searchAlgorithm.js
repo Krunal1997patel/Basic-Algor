@@ -45,11 +45,22 @@ function binarySearch(arr, num){
   
 //   console.log(binarySearch([1,2,3,4,5,6,7,8,9], 40));
 
+
+///sorting a arry from small to large number
 let num = [12,3,45,4,23,4,345,54,43,45,3434,5455];
 
-num.sort((a,b) => a-b);
+num.sort((a,b) => a-b);  // a-b = small to big   b-a = big to small
 
 // console.log(num);
+
+
+//sorting a string array from small name to big
+let name = ['krunal', 'tim', 'jake', 'colt', 'jake the second'];
+
+name.sort((str1, str2) => str1.length - str2.length);
+
+// console.log(name);
+
 
 function naiveStringSearch(longStr, shortStr){
     let count = 0;
@@ -65,4 +76,80 @@ function naiveStringSearch(longStr, shortStr){
 
 // console.log(naiveStringSearch('omg i soo omg it omlis becsi omglsk is omg', 'omg'));
 
+//bubble sort
 
+function bubbleSort(num){
+    for(let i = num.length; i >= 0; i--){
+        for(let j = 0; j < i - 1; j++){
+            console.log(num , num[j], num[j +1]);
+            if(num[j] > num[j + 1]){
+                let temp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = temp;
+            }
+        }
+    }
+    return num
+}
+
+// bubbleSort([12,2,23,56,23])
+
+function newBubbleSort(arr){
+    let swap = (arr, idx1, idx2) => {
+        [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    }
+
+    for(let i = arr.length; i >= 0; i--){
+        for(let j = 0; j < i -1; j++){
+            if(arr[j]> arr[j + 1]){
+                swap(arr, j, j + 1);
+            }
+        }
+    }
+    return arr
+}
+
+// console.log(newBubbleSort([12,5,23,45,65,34]));
+
+function bubbleSortNoSwap(num){
+    let noSwap;
+    for(let i = num.length; i >= 0; i--){
+        noSwap = true;
+        for(let j = 0; j < i - 1; j++){
+            console.log(num , num[j], num[j +1])
+            if(num[j] > num[j + 1]){
+                let temp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = temp;
+                noSwap = false;
+            }
+        }
+        if(noSwap) break;
+    }
+    return num
+}
+
+// bubbleSortNoSwap([12,5,23,56,23])
+
+function newBubbleSortNoSwap(arr){
+    let swap = (arr, idx1, idx2) => {
+        [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    }
+    let noSwap;
+
+    for(let i = arr.length; i >= 0; i--){
+        noSwap = true
+        // console.log('one loop');
+        for(let j = 0; j < i -1; j++){
+            // console.log(arr,);
+            if(arr[j]> arr[j + 1]){
+                swap(arr, j, j + 1);
+                noSwap=false;
+            }
+        }
+        if(noSwap) break;
+    }
+    return arr
+}
+
+// newBubbleSortNoSwap([8,1,2,3,4,5,6,7]);
