@@ -153,3 +153,55 @@ function newBubbleSortNoSwap(arr){
 }
 
 // newBubbleSortNoSwap([8,1,2,3,4,5,6,7]);
+
+
+//SELECTION Sort!!!
+function selectionSort(arr){
+
+    let swap = (arr, idx1, idx2) =>{
+        [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+    }
+
+    for(let i = 0; i < arr.length; i++){
+        let low = i;
+        for(let j = i + 1; j < arr.length; j++){
+            if(arr[low] > arr[j]){
+                low = j;
+            }
+        }
+       if(i !== low ) swap(arr, i, low); 
+    }
+    
+    return arr;
+}
+
+// console.log(selectionSort([12,43,53,2,344,12,3,3,2]))  //[ 2, 2, 3, 3, 12, 12, 43, 53, 344 ]
+
+//INSERTION sort!!!!
+
+function insertionSort(arr){
+
+    for(let i = 1; i < arr.length; i++){
+        let currentValue = arr[i];
+        let hold = i;
+        for(let j = i - 1; j >= 0 && arr[j] > currentValue; j-- ){
+            arr[j + 1] = arr[j];
+            hold = j
+        }
+
+        arr[hold] = currentValue;
+    }
+    return arr;
+}
+
+// console.log(insertionSort([5,2,3,67,35,1]));
+
+/*
+Algorithm     time(Best)     Time(Average)     Time(Worst)    Space
+
+Bubble Sort       O(n)          O(n^2)            O(n^2)        O(1)
+
+Insertion Sort    O(n)           O(n^2)           O(n^2)         O(1)
+
+Selection Sort    O(n^2)          O(n^2)           O(n^2)       O(1)           //not good
+*/

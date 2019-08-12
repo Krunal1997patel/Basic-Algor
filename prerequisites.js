@@ -15,7 +15,6 @@ reverArray(number3);
 
 
 
-//[34,234,213,23,1,243,4];
 
 function validAnagram(left, right){
     // add whatever parameters you deem necessary - good luck!
